@@ -19,10 +19,10 @@ class Instructor extends Person{
         this.catchPhrase = props.catchPhrase;
     }
     demo(subject) {
-        return 'Today we are learning about {subject}';
+        return `Today we are learning about ${subject}`;
     }
     grade(Student, subject) {
-        return '{student.name} receives a perfect score on {subject}';
+        return `${Student} receives a perfect score on ${subject}`;
     }
 }
 
@@ -35,13 +35,14 @@ class Student extends Person {
 
     }
     listsSubjects(favSubjects) {
+
         return ``
     }
-    PRAssignment(subject) {
-        return `{student.name} has submitted a PR request for {subject}`
+    PRAssignment(Student, subject) {
+        return `${Student} has submitted a PR request for ${subject}`
     }
-    sprintChallenge(subject) {
-        return `{student.name} has begun sprint challenge on {subject}`
+    sprintChallenge(Student, subject) {
+        return `${Student} has begun sprint challenge on ${subject}`
     }
 }
 
@@ -51,19 +52,25 @@ class ProjectManager extends Instructor {
         this.gradClassName = props.gradClassName;
         this.favInstructor = props.favInstructor;
     }
-    standup(channel) {
-        return `{name} announces to {channel}, @channel standy times!​​​​​`
+    standup(name, channel) {
+        return `${name} announces to ${channel}, @channel standy times!​​​​​`
     }
-    debugsCode(Student, subject) {
-        return `{name} debugs {student.name}'s code on {subject}`
+    debugsCode(name, Student, subject) {
+        return `${name} debugs ${Student}'s code on ${subject}`
     }
 }
 
 
 // comments to commit
 
-const fred = new Instructor({
+const fred = new Person({
     name: 'Fred',
+    age: 37,
+    location: 'Bedrock'
+  });
+
+const barney = new Instructor({
+    name: 'Barney',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
@@ -93,9 +100,10 @@ const jane = new ProjectManager({
 
 // console.log
 
-console.log(fred.demo());
-console.log(fred.grade());
-console.log(sally.PRAssignment());
-console.log(sally.sprintChallenge());
-console.log(jane.standup());
-console.log(jane.debugsCode());
+console.log(fred.speak());
+console.log(barney.demo('JavaScript'));
+console.log(barney.grade('sally', 'CSS'));
+console.log(sally.PRAssignment('sally', 'React'));
+console.log(sally.sprintChallenge('sally', 'node.js'));
+console.log(jane.standup('jane', 'web19'));
+console.log(jane.debugsCode('jane', 'sally'));

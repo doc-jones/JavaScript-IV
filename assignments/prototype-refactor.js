@@ -45,9 +45,10 @@ Each constructor function has unique properties and methods that are defined in 
   * should inherit destroy() from GameObject's prototype
   */
 
-  class CharacterStats {
-      constructor(attributes) {
-        GameObject.call(this, characterStatsOptions);
+  class CharacterStats extends GameObject {
+      constructor(childAttributes) {
+          super(childAttributes);
+        this.isChild = childAttributes.isChild;
           this.healthPoints = characterStatsOptions.healthPoints;
       }
       speak() {
@@ -67,7 +68,8 @@ Each constructor function has unique properties and methods that are defined in 
 
   class Humanoid {
       constructor(humanoidOptions) {
-          CharacterStats.call(this, humanoidOptions);
+          super(childAttributes);
+          this.isChild = childAttributes.isChild;
           this.team = humanoidOptions.team;
           this.weapons = humanoidOptions.weapons;
           this.language = humanoidOptions.language;

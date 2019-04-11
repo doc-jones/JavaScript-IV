@@ -32,8 +32,8 @@ Each constructor function has unique properties and methods that are defined in 
             this.dimensions = attribs.dimensions;
             this.name = attribs.name;
       }
-      speak() {
-          return `Hello, my name is ${this.name}`;
+      destroy() {
+          return `${this.name} was removed from the game`;
       }
   }
   
@@ -51,7 +51,7 @@ Each constructor function has unique properties and methods that are defined in 
         this.isChild = characterStatsOptions.isChild;
           this.healthPoints = characterStatsOptions.healthPoints;
       }
-      speak() {
+      takeDamage() {
           return `${this.name} took damage`;
       }
   }
@@ -75,7 +75,7 @@ Each constructor function has unique properties and methods that are defined in 
           this.weapons = humanoidOptions.weapons;
           this.language = humanoidOptions.language;
       }
-      speak() {
+      greet() {
           return `${this.name} offers a greeting in ${this.language}`;
       }
   }

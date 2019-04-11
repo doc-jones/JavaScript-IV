@@ -46,15 +46,16 @@ Each constructor function has unique properties and methods that are defined in 
   */
 
   class CharacterStats extends GameObject {
-      constructor(childAttributes) {
-          super(childAttributes);
-        this.isChild = childAttributes.isChild;
+      constructor(characterStatsOptions) {
+          super(characterStatsOptions);
+        this.isChild = characterStatsOptions.isChild;
           this.healthPoints = characterStatsOptions.healthPoints;
       }
       speak() {
           return `${this.name} took damage`;
       }
   }
+
   
   /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -66,10 +67,10 @@ Each constructor function has unique properties and methods that are defined in 
   * should inherit takeDamage() from CharacterStats
   */
 
-  class Humanoid {
+  class Humanoid extends CharacterStats{
       constructor(humanoidOptions) {
-          super(childAttributes);
-          this.isChild = childAttributes.isChild;
+          super(humanoidOptions);
+          this.isChild = humanoidOptions.isChild;
           this.team = humanoidOptions.team;
           this.weapons = humanoidOptions.weapons;
           this.language = humanoidOptions.language;

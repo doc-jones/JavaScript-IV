@@ -26,6 +26,21 @@ class Instructor extends Person{
     }
 }
 
+class Student extends Person {
+    constructor(props) {
+        super(props);
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects;
+
+    }
+    listsSubjects() {
+
+    }
+    PRAssignment (subject) {
+        return `{student.name} has submitted a PR request for {subject}`
+    }
+}
 
 
 // comments to commit
@@ -39,6 +54,16 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
   });
+
+const sally = new Student({
+    name: 'Sally',
+    age: 22,
+    location: 'Cyberspace',
+    gender: 'female',
+    previousBackground: 'gamer',
+    className: 'CS132',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+})
 
 
 // console.log

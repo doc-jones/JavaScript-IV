@@ -64,19 +64,18 @@ Each constructor function has unique properties and methods that are defined in 
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
   */
-  function Humanoid(humanoidOptions) {
-    CharacterStats.call(this, humanoidOptions);
-    this.team = humanoidOptions.team;
-    this.weapons = humanoidOptions.weapons;
-    this.language = humanoidOptions.language;
+
+  class Humanoid {
+      constructor(humanoidOptions) {
+          CharacterStats.call(this, humanoidOptions);
+          this.team = humanoidOptions.team;
+          this.weapons = humanoidOptions.weapons;
+          this.language = humanoidOptions.language;
+      }
+      speak() {
+          return `${this.name} offers a greeting in ${this.language}`;
+      }
   }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  };
-  
   
   /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid

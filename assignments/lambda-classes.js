@@ -34,11 +34,28 @@ class Student extends Person {
         this.favSubjects = props.favSubjects;
 
     }
-    listsSubjects() {
-
+    listsSubjects(favSubjects) {
+        return ``
     }
-    PRAssignment (subject) {
+    PRAssignment(subject) {
         return `{student.name} has submitted a PR request for {subject}`
+    }
+    sprintChallenge(subject) {
+        return `{student.name} has begun sprint challenge on {subject}`
+    }
+}
+
+class ProjectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+    standup(channel) {
+        return `{name} announces to {channel}, @channel standy times!​​​​​`
+    }
+    debugsCode(Student, subject) {
+        return `{name} debugs {student.name}'s code on {subject}`
     }
 }
 
@@ -63,10 +80,22 @@ const sally = new Student({
     previousBackground: 'gamer',
     className: 'CS132',
     favSubjects: ['Html', 'CSS', 'JavaScript']
-})
+});
 
+const jane = new ProjectManager({
+    name: 'jane',
+    age: 32,
+    location: 'International Space Station',
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'Sean'
+});
 
 // console.log
 
 console.log(fred.demo());
 console.log(fred.grade());
+console.log(sally.PRAssignment());
+console.log(sally.sprintChallenge());
+console.log(jane.standup());
+console.log(jane.debugsCode());

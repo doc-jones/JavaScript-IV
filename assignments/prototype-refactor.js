@@ -44,23 +44,14 @@ Each constructor function has unique properties and methods that are defined in 
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
   */
-  
-  function CharacterStats(characterStatsOptions) {
-    GameObject.call(this, characterStatsOptions);
-    this.healthPoints = characterStatsOptions.healthPoints;
-  }
-  
-  // Sets up inheritance with GameObject
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  };
 
-  class CharacterStats (charStatsOptions) {
+  class CharacterStats {
       constructor(attributes) {
         GameObject.call(this, characterStatsOptions);
-          this.healthPoints = characterStatusOptions
+          this.healthPoints = characterStatsOptions.healthPoints;
+      }
+      speak() {
+          return `${this.name} took damage`;
       }
   }
   

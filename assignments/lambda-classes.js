@@ -26,8 +26,7 @@ class Instructor extends Person{
     }
 }
 
-console.log(Instructor.demo());
-console.log(Instructor.grade());
+
 
 // comments to commit
 
@@ -40,3 +39,9 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
   });
+
+
+// console.log
+
+console.log(fred.demo());
+console.log(fred.grade());

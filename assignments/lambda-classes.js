@@ -11,6 +11,24 @@ class Person {
     }
 }
 
+class Instructor extends Person{
+    constructor(props) {
+        super(props);
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase = props.catchPhrase;
+    }
+    demo(subject) {
+        return 'Today we are learning about {subject}';
+    }
+    grade(Student, subject) {
+        return '{student.name} receives a perfect score on {subject}';
+    }
+}
+
+console.log(Instructor.demo());
+console.log(Instructor.grade());
+
 // comments to commit
 
 const fred = new Instructor({
